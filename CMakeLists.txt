@@ -13,9 +13,10 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
-find_package(rclcpp_lifecycle REQUIRED)
+find_package(rclcpp REQUIRED)
 find_package(pluginlib REQUIRED)
 find_package(filters)
+find_package(tf2_ros)
 
 find_package(pcl_ros REQUIRED)
 find_package(pcl_conversions REQUIRED)
@@ -63,11 +64,11 @@ include_directories(include ${Boost_INCLUDE_DIRS})
   #   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   #   $<INSTALL_INTERFACE:include>)  
   ament_target_dependencies(${PROJECT_NAME} 
-    rclcpp_lifecycle 
     pluginlib 
     filters 
     pcl_ros 
-    pcl_conversions 
+    pcl_conversions
+    tf2_ros
     cv_bridge)
   target_link_libraries(${PROJECT_NAME} ${PCL_LIBRARIES})
 
