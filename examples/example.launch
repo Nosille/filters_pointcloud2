@@ -1,0 +1,12 @@
+<launch>
+    <arg name="type" />
+    <arg name="path"  default="$(dirname)"/>
+    <arg name="input_topic" default="/lidar/cloud0/points"/>
+    <arg name="output_topic" default="$(arg input_topic)_example"/>    
+
+    <node pkg="filter_chains_erdc" type="pointcloud2" output="screen" ns="example" name="pointcloud2_filter">
+        <remap from="input" to="$(arg input_topic)" />
+        <remap from="output" to="$(arg output_topic)" />
+        <rosparam command="load" file="$(arg path)/$(arg type).yaml" subst_value="true"/>
+    </node>
+</launch>

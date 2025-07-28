@@ -1,0 +1,9 @@
+
+output_queue_size: 100
+pointcloud2_filter_chain:
+- name: box_filter
+  type: pointcloud2_filters_erdc/BoxFilter
+  params:
+    frame_id: base_link
+    wait_for_tf_delay: 0.10
+

@@ -1,0 +1,8 @@
+
+output_queue_size: 100
+pointcloud2_filter_chain:
+- name: flip_rings
+  type: pointcloud2_filters_erdc/FlipRings
+  params:
+    field: "ring"
+    num_rings: 64

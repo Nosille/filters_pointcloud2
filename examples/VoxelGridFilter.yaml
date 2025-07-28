@@ -1,0 +1,9 @@
+
+output_queue_size: 100
+pointcloud2_filter_chain:
+- name: voxel_filter
+  type: pointcloud2_filters_erdc/VoxelGridFilter
+  params:
+    x_size: 2.0
+    y_size: 2.0
+    z_size: 0.2

@@ -1,0 +1,129 @@
+<class_libraries>
+    <library path="pointcloud2_filters_erdc">
+        <class name="pointcloud2_filters_erdc/Transform" 
+               type="pointcloud2_filters_erdc::Transform" 
+               base_class_type="filters::FilterBase<sensor_msgs::msg::PointCloud2>">
+            <description>
+                This filter transforms pointclouds to a user selected frame.
+            </description>
+        </class>
+        <class name="pointcloud2_filters_erdc/PassThroughFilter" 
+               type="pointcloud2_filters_erdc::PassThroughFilter" 
+               base_class_type="filters::FilterBase<sensor_msgs::msg::PointCloud2>">
+            <description>
+                This uses a pcl filter that removes points based on a min and max value for a single field.
+            </description>
+        </class>
+        <class name="pointcloud2_filters_erdc/PassThroughFilterArray" 
+               type="pointcloud2_filters_erdc::PassThroughFilterArray" 
+               base_class_type="filters::FilterBase<sensor_msgs::msg::PointCloud2>">
+            <description>
+                This uses a pcl filter that removes points based on min and max values of an array of fields.
+            </description>
+        </class>        
+        <class name="pointcloud2_filters_erdc/BoxFilter" 
+               type="pointcloud2_filters_erdc::BoxFilter" 
+               base_class_type="filters::FilterBase<sensor_msgs::msg::PointCloud2>">
+            <description>
+                This uses a pcl filter that removes points from a pointcloud2 message inside of a cartesian box.
+            </description>
+        </class>
+        <class name="pointcloud2_filters_erdc/FlipRings" 
+               type="pointcloud2_filters_erdc::FlipRings" 
+               base_class_type="filters::FilterBase<sensor_msgs::msg::PointCloud2>">
+            <description>
+                This uses a filter that reverses the ring order in a pointcloud2 message.
+            </description>
+        </class>
+        <class name="pointcloud2_filters_erdc/StatisticalOutlierFilter" 
+               type="pointcloud2_filters_erdc::StatisticalOutlierFilter" 
+               base_class_type="filters::FilterBase<sensor_msgs::msg::PointCloud2>">
+            <description>
+                This uses a pcl filter that removes outliers in a pointcloud2 message.
+            </description>
+        </class>
+        <class name="pointcloud2_filters_erdc/VoxelGridFilter" 
+               type="pointcloud2_filters_erdc::VoxelGridFilter" 
+               base_class_type="filters::FilterBase<sensor_msgs::msg::PointCloud2>">
+            <description>
+                This uses a pcl filter that voxelizes a pointcloud2 message.
+            </description>
+        </class>
+        <class name="pointcloud2_filters_erdc/AddNormals" 
+               type="pointcloud2_filters_erdc::AddNormals" 
+               base_class_type="filters::FilterBase<sensor_msgs::msg::PointCloud2>">
+            <description>
+                This uses a pcl filter that adds normals to a pointcloud2 message.
+            </description>
+        </class>  
+        <class name="pointcloud2_filters_erdc/DeskewTF" 
+               type="pointcloud2_filters_erdc::DeskewTF" 
+               base_class_type="filters::FilterBase<sensor_msgs::msg::PointCloud2>">
+            <description>
+                This filter deskews a pointcloud2 message through linear interpolation based on the TF tree.
+                The interpolation is performed between two poses of the sensor in a user selected TF frame (defined by frame_id parameter).  Frame_id should be static, i.e. map/odom, frame.
+                Pose one is the transform from the frame listed in the pointcloud header to the selected frame at the time stated in the header.
+                Pose two is the transform from the frame listed in the pointcloud header to the selected frame at the time stated in the header plus a user selected timeshift (defined by frequency parameter in Hz).
+                Each point in the pointcloud must include a field (field parameter) defining the timeshift relative to the header for that point in nanoseconds.  
+                A conversion parameter is provided for converting other units to nanoseconds if required.
+            </description>
+        </class>   
+        <class name="pointcloud2_filters_erdc/DeskewLinear" 
+               type="pointcloud2_filters_erdc::DeskewLinear" 
+               base_class_type="filters::FilterBase<sensor_msgs::msg::PointCloud2>">
+            <description>
+                This filter deskews a pointcloud2 message through linear interpolation based on the TF tree.  Slightly more efficient than DeskewTF by reducing the number of transformations. 
+                The interpolation is performed using the relative position of the sensor at two points in time using the frame_id parameter.  Frame_id should be a static, i.e. map/odom, frame that defines the relative position change.
+                Pose one is the refrence frame based on the position of the sensor at the time stated in the header.
+                Pose two is the transformation frame based on the position of the sensor one cycle later as implied by the frequency parameter.
+                Each point in the pointcloud must include a field (field parameter) defining the timeshift relative to the header for that point in nanoseconds.  
+                A conversion parameter is provided for converting other units to nanoseconds if required.   
+            </description>
+        </class>                              
+        <class name="pointcloud2_filters_erdc/DeskewImu" 
+               type="pointcloud2_filters_erdc::DeskewImu" 
+               base_class_type="filters::FilterBase<sensor_msgs::msg::PointCloud2>">
+            <description>
+                This filter deskews a pointcloud2 message using a separate Imu message.
+                The initial state of the sensor (position and velocity) is obtained from the TF tree as in DeskewTF and DeskewLinear.  However, the transform is nonlinear using the velocity and acceleration data in the imu message.
+                Each point in the pointcloud must include a field (field parameter) defining the timeshift relative to the header for that point in nanoseconds.  
+                A conversion parameter is provided for converting other units to nanoseconds if required. 
+            </description>
+        </class>      
+        <class name="pointcloud2_filters_erdc/RadiusFilter" 
+               type="pointcloud2_filters_erdc::RadiusFilter" 
+               base_class_type="filters::FilterBase<sensor_msgs::msg::PointCloud2>">
+            <description>
+                This is a filter that removes points from a pointcloud2 message inside of a sphere.
+            </description>
+        </class>
+        <class name="pointcloud2_filters_erdc/MathExpression" 
+               type="pointcloud2_filters_erdc::MathExpression" 
+               base_class_type="filters::FilterBase<sensor_msgs::msg::PointCloud2>">
+            <description>
+                Parse and evaluate a mathematical matrix expression with fields of a pointcloud2.
+            </description>
+        </class>      
+        <class name="pointcloud2_filters_erdc/RemoveBlackPoints" 
+               type="pointcloud2_filters_erdc::RemoveBlackPoints" 
+               base_class_type="filters::FilterBase<sensor_msgs::msg::PointCloud2>">
+            <description>
+                This is a filter that removes any points that are black in the rgb or rgba field.
+            </description>
+        </class>  
+        <class name="pointcloud2_filters_erdc/FieldValueFilter_Integer" 
+               type="pointcloud2_filters_erdc::FieldValueFilter_Integer" 
+               base_class_type="filters::FilterBase<sensor_msgs::msg::PointCloud2>">
+            <description>
+                This is a filter that removes points based on value of an integer field.
+            </description>
+        </class>       
+        <class name="pointcloud2_filters_erdc/ConvertToImage" 
+               type="pointcloud2_filters_erdc::ConvertToImage" 
+               base_class_type="filters::FilterBase<sensor_msgs::msg::PointCloud2>">
+            <description>
+                This is a filter that turns pointclouds into images based on user defined camera frame.
+            </description>
+        </class>        
+    </library>
+</class_libraries>

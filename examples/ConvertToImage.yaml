@@ -1,0 +1,18 @@
+
+output_queue_size: 100
+pointcloud2_filter_chain:
+- name: convert_to_image
+  type: pointcloud2_filters_erdc/ConvertToImage
+  params:
+    frame_id: lucid_camera_0/optical_frame
+    wait_for_tf_delay: 0.10
+    field: rgba
+    height: 400
+    width: 400
+    pixel_size: 3
+    focal_length: 150    
+
+    camera_info_topic: $(arg input_topic)/camera_info
+    color_image_topic: $(arg input_topic)/color_image
+    depth_image_topic: $(arg input_topic)/depth_image
+    user_image_topic: $(arg input_topic)/user_image

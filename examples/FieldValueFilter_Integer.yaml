@@ -1,0 +1,12 @@
+
+output_queue_size: 100
+pointcloud2_filter_chain:
+- name: pass_through_filter
+  type: pointcloud2_filters_erdc/FieldValueFilter_Integer
+  params:
+    frame_id: ""
+    field: "intensity"
+    min: 0
+    max: 1
+    keep_organized: false
+    invert: false
