@@ -1,5 +1,5 @@
 <package>
-  <name>pointcloud2_filters_erdc</name>
+  <name>filters_pointcloud2_erdc</name>
   <description>
     Assorted filters designed to operate on pointcloud2 topics.
   </description>

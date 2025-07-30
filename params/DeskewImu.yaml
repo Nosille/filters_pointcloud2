@@ -3,7 +3,7 @@
     pointcloud2_filter_chain:
       filter1:
         name: deskewImu
-        type: pointcloud2_filters_erdc/DeskewImu
+        type: filters_pointcloud2_erdc/DeskewImu
         params:
           map_frame_id: odom
           robot_frame_id: base_footprint

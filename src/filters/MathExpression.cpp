@@ -11,7 +11,7 @@
 #include <tf2_geometry_msgs/tf2_geometry_msgs.h>
 
 #include <dynamic_reconfigure/server.h>
-#include <pointcloud2_filters_erdc/MathExpressionConfig.h>
+#include <filters_pointcloud2_erdc/MathExpressionConfig.h>
 
 #include <geometry_msgs/Point.h>
 #include <sensor_msgs/PointCloud2.h>

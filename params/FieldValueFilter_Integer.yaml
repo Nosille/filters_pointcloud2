@@ -3,7 +3,7 @@
     pointcloud2_filter_chain:
       filter1:
         name: field_value_filter
-        type: pointcloud2_filters_erdc/FieldValueFilter_Integer
+        type: filters_pointcloud2_erdc/FieldValueFilter_Integer
         params:
           frame_id: ""
           field: "intensity"

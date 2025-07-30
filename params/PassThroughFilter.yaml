@@ -3,7 +3,7 @@
     pointcloud2_filter_chain:
       filter1:
         name: pass_through_filter
-        type: pointcloud2_filters_erdc/PassThroughFilter
+        type: filters_pointcloud2_erdc/PassThroughFilter
         params:
           frame_id: ""
           field: "z"

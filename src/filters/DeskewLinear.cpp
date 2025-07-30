@@ -86,7 +86,7 @@ namespace pointcloud2_filters
         // Check to see if we can do transforms
         if(m_buffer == nullptr)
         {
-          RCLCPP_WARN_STREAM(this->logging_interface_->get_logger(), "pointcloud2_filters_erdc/DeskewLinear does not have access to tf data!");
+          RCLCPP_WARN_STREAM(this->logging_interface_->get_logger(), "filters_pointcloud2_erdc/DeskewLinear does not have access to tf data!");
         } else {         
           //transform
           try

@@ -1,62 +1,62 @@
 <class_libraries>
-    <library path="pointcloud2_filters_erdc">
-        <class name="pointcloud2_filters_erdc/Transform" 
+    <library path="filters_pointcloud2_erdc">
+        <class name="filters_pointcloud2_erdc/Transform" 
                type="pointcloud2_filters::Transform" 
                base_class_type="filters::FilterBase&lt;sensor_msgs::msg::PointCloud2&gt;">
             <description>
                 This filter transforms pointclouds to a user selected frame.
             </description>
         </class>
-        <class name="pointcloud2_filters_erdc/PassThroughFilter" 
+        <class name="filters_pointcloud2_erdc/PassThroughFilter" 
                type="pointcloud2_filters::PassThroughFilter" 
                base_class_type="filters::FilterBase&lt;sensor_msgs::msg::PointCloud2&gt;">
             <description>
                 This uses a pcl filter that removes points based on a min and max value for a single field.
             </description>
         </class>
-        <class name="pointcloud2_filters_erdc/PassThroughFilterArray" 
+        <class name="filters_pointcloud2_erdc/PassThroughFilterArray" 
                type="pointcloud2_filters::PassThroughFilterArray" 
                base_class_type="filters::FilterBase&lt;sensor_msgs::msg::PointCloud2&gt;">
             <description>
                 This uses a pcl filter that removes points based on min and max values of an array of fields.
             </description>
         </class>        
-        <class name="pointcloud2_filters_erdc/BoxFilter" 
+        <class name="filters_pointcloud2_erdc/BoxFilter" 
                type="pointcloud2_filters::BoxFilter" 
                base_class_type="filters::FilterBase&lt;sensor_msgs::msg::PointCloud2&gt;">
             <description>
                 This uses a pcl filter that removes points from a pointcloud2 message inside of a cartesian box.
             </description>
         </class>
-        <class name="pointcloud2_filters_erdc/FlipRings" 
+        <class name="filters_pointcloud2_erdc/FlipRings" 
                type="pointcloud2_filters::FlipRings" 
                base_class_type="filters::FilterBase&lt;sensor_msgs::msg::PointCloud2&gt;">
             <description>
                 This uses a filter that reverses the ring order in a pointcloud2 message.
             </description>
         </class>
-        <class name="pointcloud2_filters_erdc/StatisticalOutlierFilter" 
+        <class name="filters_pointcloud2_erdc/StatisticalOutlierFilter" 
                type="pointcloud2_filters::StatisticalOutlierFilter" 
                base_class_type="filters::FilterBase&lt;sensor_msgs::msg::PointCloud2&gt;">
             <description>
                 This uses a pcl filter that removes outliers in a pointcloud2 message.
             </description>
         </class>
-        <class name="pointcloud2_filters_erdc/VoxelGridFilter" 
+        <class name="filters_pointcloud2_erdc/VoxelGridFilter" 
                type="pointcloud2_filters::VoxelGridFilter" 
                base_class_type="filters::FilterBase&lt;sensor_msgs::msg::PointCloud2&gt;">
             <description>
                 This uses a pcl filter that voxelizes a pointcloud2 message.
             </description>
         </class>
-        <class name="pointcloud2_filters_erdc/AddNormals" 
+        <class name="filters_pointcloud2_erdc/AddNormals" 
                type="pointcloud2_filters::AddNormals" 
                base_class_type="filters::FilterBase&lt;sensor_msgs::msg::PointCloud2&gt;">
             <description>
                 This uses a pcl filter that adds normals to a pointcloud2 message.
             </description>
         </class>  
-        <class name="pointcloud2_filters_erdc/DeskewTF" 
+        <class name="filters_pointcloud2_erdc/DeskewTF" 
                type="pointcloud2_filters::DeskewTF" 
                base_class_type="filters::FilterBase&lt;sensor_msgs::msg::PointCloud2&gt;">
             <description>
@@ -68,7 +68,7 @@
                 A conversion parameter is provided for converting other units to nanoseconds if required.
             </description>
         </class>   
-        <class name="pointcloud2_filters_erdc/DeskewLinear" 
+        <class name="filters_pointcloud2_erdc/DeskewLinear" 
                type="pointcloud2_filters::DeskewLinear" 
                base_class_type="filters::FilterBase&lt;sensor_msgs::msg::PointCloud2&gt;">
             <description>
@@ -80,7 +80,7 @@
                 A conversion parameter is provided for converting other units to nanoseconds if required.   
             </description>
         </class>                              
-        <class name="pointcloud2_filters_erdc/DeskewImu" 
+        <class name="filters_pointcloud2_erdc/DeskewImu" 
                type="pointcloud2_filters::DeskewImu" 
                base_class_type="filters::FilterBase&lt;sensor_msgs::msg::PointCloud2&gt;">
             <description>
@@ -90,28 +90,28 @@
                 A conversion parameter is provided for converting other units to nanoseconds if required. 
             </description>
         </class>      
-        <class name="pointcloud2_filters_erdc/RadiusFilter" 
+        <class name="filters_pointcloud2_erdc/RadiusFilter" 
                type="pointcloud2_filters::RadiusFilter" 
                base_class_type="filters::FilterBase&lt;sensor_msgs::msg::PointCloud2&gt;">
             <description>
                 This is a filter that removes points from a pointcloud2 message inside of a sphere.
             </description>
         </class>
-        <!-- <class name="pointcloud2_filters_erdc/MathExpression" 
-               type="pointcloud2_filters_erdc::MathExpression" 
+        <!-- <class name="filters_pointcloud2_erdc/MathExpression" 
+               type="filters_pointcloud2_erdc::MathExpression" 
                base_class_type="filters::FilterBase&lt;sensor_msgs::msg::PointCloud2&gt;">
             <description>
                 Parse and evaluate a mathematical matrix expression with fields of a pointcloud2.
             </description>
         </class>       -->
-        <class name="pointcloud2_filters_erdc/RemoveBlackPoints" 
+        <class name="filters_pointcloud2_erdc/RemoveBlackPoints" 
                type="pointcloud2_filters::RemoveBlackPoints" 
                base_class_type="filters::FilterBase&lt;sensor_msgs::msg::PointCloud2&gt;">
             <description>
                 This is a filter that removes any points that are black in the rgb or rgba field.
             </description>
         </class>  
-        <class name="pointcloud2_filters_erdc/FieldValueFilter_Integer" 
+        <class name="filters_pointcloud2_erdc/FieldValueFilter_Integer" 
                type="pointcloud2_filters::FieldValueFilter_Integer" 
                base_class_type="filters::FilterBase&lt;sensor_msgs::msg::PointCloud2&gt;">
             <description>

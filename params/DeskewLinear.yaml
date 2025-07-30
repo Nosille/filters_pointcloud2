@@ -3,7 +3,7 @@
     pointcloud2_filter_chain:
       filter1:
         name: deskewLinear
-        type: pointcloud2_filters_erdc/DeskewLinear
+        type: filters_pointcloud2_erdc/DeskewLinear
         params:
           map_frame_id: odom
           field: t

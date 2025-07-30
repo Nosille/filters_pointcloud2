@@ -3,7 +3,7 @@
     pointcloud2_filter_chain:
       filter1:
         name: statistical_outlier_filter
-        type: pointcloud2_filters_erdc/StatisticalOutlierFilter
+        type: filters_pointcloud2_erdc/StatisticalOutlierFilter
         params:
           num_neighbors: 10
           std_dev_mul_thresh: 1.0

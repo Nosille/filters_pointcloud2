@@ -218,7 +218,7 @@ namespace pointcloud2_filters
           // Check to see if we can do transforms
           if(m_buffer == nullptr)
           {
-            RCLCPP_WARN_STREAM(this->logging_interface_->get_logger(), "pointcloud2_filters_erdc/DescewImu does not have access to tf data!");
+            RCLCPP_WARN_STREAM(this->logging_interface_->get_logger(), "filters_pointcloud2_erdc/DescewImu does not have access to tf data!");
             return false;
           } else {   
             try
@@ -270,7 +270,7 @@ namespace pointcloud2_filters
         if(m_stampScanPrevious == 0) m_stampScanPrevious = rclcpp::Time(input_msg.header.stamp).nanoseconds() - (1 / m_frequency * 1e9);               
         if(m_buffer == nullptr)
         {
-          RCLCPP_WARN_STREAM(this->logging_interface_->get_logger(), "pointcloud2_filters_erdc/DescewImu does not have access to tf data!");
+          RCLCPP_WARN_STREAM(this->logging_interface_->get_logger(), "filters_pointcloud2_erdc/DescewImu does not have access to tf data!");
           return false;            
         } else {  
           try
@@ -356,7 +356,7 @@ namespace pointcloud2_filters
 
         if(m_buffer == nullptr)
         {
-          RCLCPP_WARN_STREAM(this->logging_interface_->get_logger(), "pointcloud2_filters_erdc/DescewImu does not have access to tf data!");
+          RCLCPP_WARN_STREAM(this->logging_interface_->get_logger(), "filters_pointcloud2_erdc/DescewImu does not have access to tf data!");
           return false;            
         } else {  
           // Get current lidar position in map frame
@@ -441,7 +441,7 @@ namespace pointcloud2_filters
            // Check to see if we can do transforms
           if(m_buffer == nullptr)
           {
-            RCLCPP_WARN_STREAM(this->logging_interface_->get_logger(), "pointcloud2_filters_erdc/BoxFilter does not have access to tf data!");
+            RCLCPP_WARN_STREAM(this->logging_interface_->get_logger(), "filters_pointcloud2_erdc/BoxFilter does not have access to tf data!");
           } else {   
             try
             { 

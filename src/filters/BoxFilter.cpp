@@ -93,7 +93,7 @@ namespace pointcloud2_filters
         if(m_buffer == nullptr)
         {
           output_msg = input_msg;          
-          RCLCPP_WARN_STREAM(this->logging_interface_->get_logger(), "pointcloud2_filters_erdc/BoxFilter does not have access to tf data!");
+          RCLCPP_WARN_STREAM(this->logging_interface_->get_logger(), "filters_pointcloud2_erdc/BoxFilter does not have access to tf data!");
         } else { 
           //transform
           if(m_frameId != "" && m_frameId != input_msg.header.frame_id)

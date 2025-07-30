@@ -1,6 +1,6 @@
 <launch>
     <arg name="type" />
-    <arg name="path"                   default="$(find-pkg-share pointcloud2_filters_erdc)/params"/>
+    <arg name="path"                   default="$(find-pkg-share filters_pointcloud2_erdc)/params"/>
     <arg name="input_topic"            default="/lidar/lidar0/points"/>
     <arg name="output_topic"           default="$(var input_topic)_example"/>    
 

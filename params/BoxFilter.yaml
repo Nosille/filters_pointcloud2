@@ -4,7 +4,7 @@
     pointcloud2_filter_chain:
       filter1:
         name: box_filter
-        type: pointcloud2_filters_erdc/BoxFilter
+        type: filters_pointcloud2_erdc/BoxFilter
         params:
           frame_id: base_link
           min_x: -5.0
