@@ -1,0 +1,10 @@
+/**:
+  ros__parameters:
+    pointcloud2_filter_chain:
+      filter1:
+        name: radius_filter
+        type: pointcloud2_filters_erdc/RadiusFilter
+        params:
+          frame_id: "base_link"
+          radius: 5.0
+          invert: False

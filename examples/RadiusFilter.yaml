@@ -1,9 +1,0 @@
-
-output_queue_size: 100
-pointcloud2_filter_chain:
-- name: radius_filter
-  type: pointcloud2_filters_erdc/RadiusFilter
-  params:
-    frame_id: base_link
-    radius: 10.0
-    invert: true

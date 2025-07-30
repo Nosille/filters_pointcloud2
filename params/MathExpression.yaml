@@ -1,0 +1,11 @@
+/**:
+  ros__parameters:
+    pointcloud2_filter_chain:
+      filter1:
+        name: math_expression
+        type: pointcloud2_filters_erdc/MathExpression
+        params:
+          frame_id: sensor_fusion_focal
+          expression: "2.0 * z"
+          output_field: "doublez"
+

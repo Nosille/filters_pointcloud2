@@ -9,17 +9,19 @@
 #include <geometry_msgs/msg/point.hpp>
 #include <sensor_msgs/msg/point_cloud2.hpp>
 
+#include <tf2_sensor_msgs/tf2_sensor_msgs.hpp>
+#include <tf2_geometry_msgs/tf2_geometry_msgs.hpp> 
+
 #include <pcl/filters/crop_box.h>
 #include <pcl_ros/transforms.hpp>
 #include <pcl_conversions/pcl_conversions.h>
 
 
-namespace pointcloud2_filters_erdc
+namespace pointcloud2_filters
 {
   class BoxFilter : public filters::FilterBase<sensor_msgs::msg::PointCloud2>
   {
     protected:
-
       std::unique_ptr<tf2_ros::Buffer> m_buffer;
       std::shared_ptr<tf2_ros::TransformListener> m_listener{nullptr};
       rclcpp::Publisher<sensor_msgs::msg::PointCloud2>::SharedPtr m_pubIntermediate;
@@ -39,7 +41,7 @@ namespace pointcloud2_filters_erdc
 
       bool configure()
       {
-        RCLCPP_INFO(this->logging_interface_->get_logger(),"Pointcloud2BoxFilter started");
+        RCLCPP_INFO(this->logging_interface_->get_logger(),"Pointcloud2BoxFilter configuring");
 
         // Setup tf2
         if(this->get_node() != nullptr)
@@ -75,6 +77,7 @@ namespace pointcloud2_filters_erdc
         const sensor_msgs::msg::PointCloud2& input_msg,
         sensor_msgs::msg::PointCloud2& output_msg)
       {
+        RCLCPP_WARN_STREAM(this->logging_interface_->get_logger(), "Update BoxFilter");
         // Check message for data
         if (input_msg.data.size() == 0)
         {
@@ -153,4 +156,4 @@ namespace pointcloud2_filters_erdc
 
 }
 
-PLUGINLIB_EXPORT_CLASS(pointcloud2_filters_erdc::BoxFilter, filters::FilterBase<sensor_msgs::msg::PointCloud2>)
+PLUGINLIB_EXPORT_CLASS(pointcloud2_filters::BoxFilter, filters::FilterBase<sensor_msgs::msg::PointCloud2>)

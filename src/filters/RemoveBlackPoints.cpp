@@ -7,7 +7,7 @@
 #include <sensor_msgs/point_cloud2_iterator.hpp>
 
 
-namespace pointcloud2_filters_erdc
+namespace pointcloud2_filters
 {
   class RemoveBlackPoints : public filters::FilterBase<sensor_msgs::msg::PointCloud2>
   {
@@ -24,7 +24,7 @@ namespace pointcloud2_filters_erdc
 
       bool configure()
       {
-        RCLCPP_INFO(this->logging_interface_->get_logger(),"Pointcloud2RemoveBlackPoints started");
+        RCLCPP_INFO(this->logging_interface_->get_logger(),"Pointcloud2RemoveBlackPoints configuring");
 
         this->getParam("field",m_field, "rgba");
 
@@ -97,4 +97,4 @@ namespace pointcloud2_filters_erdc
 
 }
 
-PLUGINLIB_EXPORT_CLASS(pointcloud2_filters_erdc::RemoveBlackPoints, filters::FilterBase<sensor_msgs::msg::PointCloud2>)
+PLUGINLIB_EXPORT_CLASS(pointcloud2_filters::RemoveBlackPoints, filters::FilterBase<sensor_msgs::msg::PointCloud2>)

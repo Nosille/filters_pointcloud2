@@ -56,7 +56,7 @@ struct State {
   ImuBias b; // imu biases in body frame
 };
 
-namespace pointcloud2_filters_erdc
+namespace pointcloud2_filters
 {
   class DeskewImu : public filters::FilterBase<sensor_msgs::msg::PointCloud2>
   {
@@ -113,7 +113,7 @@ namespace pointcloud2_filters_erdc
 
       bool configure()
       {
-        RCLCPP_INFO(this->logging_interface_->get_logger(),"Pointcloud2DeskewImu started");
+        RCLCPP_INFO(this->logging_interface_->get_logger(),"Pointcloud2DeskewImu configuring");
 
         // Setup tf2
         if(this->get_node() != nullptr)
@@ -816,4 +816,4 @@ namespace pointcloud2_filters_erdc
 
 }
 
-PLUGINLIB_EXPORT_CLASS(pointcloud2_filters_erdc::DeskewImu, filters::FilterBase<sensor_msgs::msg::PointCloud2>)
+PLUGINLIB_EXPORT_CLASS(pointcloud2_filters::DeskewImu, filters::FilterBase<sensor_msgs::msg::PointCloud2>)

@@ -1,0 +1,13 @@
+/**:
+  ros__parameters:
+    pointcloud2_filter_chain:
+      filter1:
+        name: pass_through_filter
+        type: pointcloud2_filters_erdc/PassThroughFilter
+        params:
+          frame_id: ""
+          field: "z"
+          min: -1.0
+          max: 2.0
+          keep_organized: False
+          invert: False

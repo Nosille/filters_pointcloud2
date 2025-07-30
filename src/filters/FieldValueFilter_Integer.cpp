@@ -6,8 +6,11 @@
 #include <tf2_ros/message_filter.h>
 #include <tf2_ros/transform_listener.h>
 
+#include <geometry_msgs/msg/point.hpp>
 #include <sensor_msgs/msg/point_cloud2.hpp>
-#include <sensor_msgs/point_cloud2_iterator.hpp>
+
+#include <tf2_sensor_msgs/tf2_sensor_msgs.hpp>
+#include <tf2_geometry_msgs/tf2_geometry_msgs.hpp> 
 
 #include <pcl/filters/filter.h>
 #include <pcl/filters/passthrough.h>
@@ -16,7 +19,7 @@
 #include <pcl_conversions/pcl_conversions.h>
 
 
-namespace pointcloud2_filters_erdc
+namespace pointcloud2_filters
 {
   class FieldValueFilter_Integer : public filters::FilterBase<sensor_msgs::msg::PointCloud2>
   {
@@ -31,15 +34,15 @@ namespace pointcloud2_filters_erdc
       double m_waitForTfDelay;
       bool m_keepOrganized;
       bool m_invert;
-      double m_min;
-      double m_max;
+      int m_min;
+      int m_max;
 
     public:
       FieldValueFilter_Integer() { }
 
       bool configure()
       {
-        RCLCPP_INFO(this->logging_interface_->get_logger(),"Pointcloud2FieldValueFilter_Integer started");
+        RCLCPP_INFO(this->logging_interface_->get_logger(),"Pointcloud2FieldValueFilter_Integer configuring");
 
         // Setup tf2
         if(this->get_node() != nullptr)
@@ -258,4 +261,4 @@ namespace pointcloud2_filters_erdc
 
 }
 
-PLUGINLIB_EXPORT_CLASS(pointcloud2_filters_erdc::FieldValueFilter_Integer, filters::FilterBase<sensor_msgs::msg::PointCloud2>)
+PLUGINLIB_EXPORT_CLASS(pointcloud2_filters::FieldValueFilter_Integer, filters::FilterBase<sensor_msgs::msg::PointCloud2>)

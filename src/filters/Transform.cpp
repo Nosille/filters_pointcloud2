@@ -6,13 +6,17 @@
 #include <tf2_ros/message_filter.h>
 #include <tf2_ros/transform_listener.h>
 
+#include <geometry_msgs/msg/point.hpp>
 #include <sensor_msgs/msg/point_cloud2.hpp>
+
+#include <tf2_sensor_msgs/tf2_sensor_msgs.hpp>
+#include <tf2_geometry_msgs/tf2_geometry_msgs.hpp> 
 
 #include <pcl_ros/transforms.hpp>
 #include <pcl_conversions/pcl_conversions.h>
 
 
-namespace pointcloud2_filters_erdc
+namespace pointcloud2_filters
 {
   class Transform : public filters::FilterBase<sensor_msgs::msg::PointCloud2>
   {
@@ -30,7 +34,7 @@ namespace pointcloud2_filters_erdc
 
       bool configure()
       {
-        RCLCPP_INFO(this->logging_interface_->get_logger(), "Pointcloud2Transform started");
+        RCLCPP_INFO(this->logging_interface_->get_logger(), "Pointcloud2Transform configuring");
 
         // Setup tf2
         if(this->get_node() != nullptr)
@@ -118,4 +122,4 @@ namespace pointcloud2_filters_erdc
 
 }
 
-PLUGINLIB_EXPORT_CLASS(pointcloud2_filters_erdc::Transform, filters::FilterBase<sensor_msgs::msg::PointCloud2>)
+PLUGINLIB_EXPORT_CLASS(pointcloud2_filters::Transform, filters::FilterBase<sensor_msgs::msg::PointCloud2>)

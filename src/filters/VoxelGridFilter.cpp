@@ -3,9 +3,6 @@
 #include <filters/filter_base.hpp>
 #include <pluginlib/class_list_macros.hpp>
 
-#include <tf2_ros/message_filter.h>
-#include <tf2_ros/transform_listener.h>
-
 #include <geometry_msgs/msg/point.hpp>
 #include <sensor_msgs/msg/point_cloud2.hpp>
 
@@ -16,7 +13,7 @@
 #include <pcl_conversions/pcl_conversions.h>
 
 
-namespace pointcloud2_filters_erdc
+namespace pointcloud2_filters
 {
   class VoxelGridFilter : public filters::FilterBase<sensor_msgs::msg::PointCloud2>
   {
@@ -33,7 +30,7 @@ namespace pointcloud2_filters_erdc
 
       bool configure()
       {
-        RCLCPP_INFO(this->logging_interface_->get_logger(),"Pointcloud2VoxelGridFilter started");
+        RCLCPP_INFO(this->logging_interface_->get_logger(),"Pointcloud2VoxelGridFilter configuring");
 
         this->getParam("x_size", m_xSize, 0.0);
         this->getParam("y_size", m_ySize, 0.0);
@@ -89,4 +86,4 @@ namespace pointcloud2_filters_erdc
 
 }
 
-PLUGINLIB_EXPORT_CLASS(pointcloud2_filters_erdc::VoxelGridFilter, filters::FilterBase<sensor_msgs::msg::PointCloud2>)
+PLUGINLIB_EXPORT_CLASS(pointcloud2_filters::VoxelGridFilter, filters::FilterBase<sensor_msgs::msg::PointCloud2>)

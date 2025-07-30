@@ -1,0 +1,11 @@
+/**:
+  ros__parameters:
+    pointcloud2_filter_chain:
+      filter1:
+        name: deskewTF
+        type: pointcloud2_filters_erdc/DeskewTF
+        params:
+          map_frame_id: odom
+          field: t
+          conversion: 1.0
+          frequency: 10.0

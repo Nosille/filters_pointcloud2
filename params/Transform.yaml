@@ -1,0 +1,10 @@
+/**:
+  ros__parameters:
+    pointcloud2_filter_chain:
+      filter1:
+        name: box_filter
+        type: pointcloud2_filters_erdc/Transform
+        params:
+          frame_id: base_link
+          wait_for_tf_delay: 0.10
+

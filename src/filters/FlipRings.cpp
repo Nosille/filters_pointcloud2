@@ -7,7 +7,7 @@
 #include <sensor_msgs/point_cloud2_iterator.hpp>
 
 
-namespace pointcloud2_filters_erdc
+namespace pointcloud2_filters
 {
   class FlipRings : public filters::FilterBase<sensor_msgs::msg::PointCloud2>
   {
@@ -23,7 +23,7 @@ namespace pointcloud2_filters_erdc
 
       bool configure()
       {
-        RCLCPP_INFO(this->logging_interface_->get_logger(),"Pointcloud2FlipRings started");
+        RCLCPP_INFO(this->logging_interface_->get_logger(),"Pointcloud2FlipRings configuring");
 
         this->getParam("field", m_field, "ring");
         this->getParam("num_rings", m_numRings, 64);
@@ -88,4 +88,4 @@ namespace pointcloud2_filters_erdc
 
 }
 
-PLUGINLIB_EXPORT_CLASS(pointcloud2_filters_erdc::FlipRings, filters::FilterBase<sensor_msgs::msg::PointCloud2>)
+PLUGINLIB_EXPORT_CLASS(pointcloud2_filters::FlipRings, filters::FilterBase<sensor_msgs::msg::PointCloud2>)

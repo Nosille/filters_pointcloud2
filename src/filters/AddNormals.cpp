@@ -21,7 +21,7 @@
 #endif
 
 
-namespace pointcloud2_filters_erdc
+namespace pointcloud2_filters
 {
   class AddNormals : public filters::FilterBase<sensor_msgs::msg::PointCloud2>
   {
@@ -38,7 +38,7 @@ namespace pointcloud2_filters_erdc
 
       bool configure()
       {
-        RCLCPP_INFO(this->logging_interface_->get_logger(),"Pointcloud2AddNormals started");
+        RCLCPP_INFO(this->logging_interface_->get_logger(),"Pointcloud2AddNormals configuring");
 
         getParam("omp_threads", m_ompThreads, 1);
         getParam("num_neighbors", m_numNeighbors, 10);
@@ -78,8 +78,6 @@ namespace pointcloud2_filters_erdc
         pcl::PointCloud<pcl::Normal>::Ptr normals(new pcl::PointCloud<pcl::Normal>());
 
         pcl::fromPCLPointCloud2(*cloud, *cloud_xyz);
-        // std::vector<int> indices;
-        // pcl::removeNaNFromPointCloud(*cloud_xyz, *cloud_xyz, indices); //also converts from organized to dense
 
         #ifdef _PCL_GPU_FEATURES_
           #warning "Using  _PCL_GPU_FEATURES_ for normal estimation"
@@ -96,6 +94,7 @@ namespace pointcloud2_filters_erdc
           pcl::gpu::NormalEstimation ne;
           ne.setInputCloud(cloud_gpu);
           ne.setRadiusSearch(m_searchRadius, m_numNeighbors);
+          ne.setViewPoint(0.0, 0.0, 0.0);
           ne.compute(normals_gpu);
 
           // download normals to cpu
@@ -131,6 +130,7 @@ namespace pointcloud2_filters_erdc
           {
             ne.setRadiusSearch(m_searchRadius);
           }
+          ne.setViewPoint(0.0, 0.0, 0.0);
             
           // Compute the features
           ne.compute(*normals);
@@ -158,6 +158,7 @@ namespace pointcloud2_filters_erdc
           {
             ne.setRadiusSearch(m_searchRadius);
           }
+          ne.setViewPoint(0.0, 0.0, 0.0);          
             
           // Compute the features
           ne.compute(*normals);
@@ -188,4 +189,4 @@ namespace pointcloud2_filters_erdc
 
 }
 
-PLUGINLIB_EXPORT_CLASS(pointcloud2_filters_erdc::AddNormals, filters::FilterBase<sensor_msgs::msg::PointCloud2>)
+PLUGINLIB_EXPORT_CLASS(pointcloud2_filters::AddNormals, filters::FilterBase<sensor_msgs::msg::PointCloud2>)

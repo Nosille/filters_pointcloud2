@@ -29,7 +29,7 @@
 #include <Eigen/Eigen>
 
 
-namespace pointcloud2_filters_erdc
+namespace pointcloud2_filters
 {
   struct hasField
   {
@@ -78,7 +78,7 @@ namespace pointcloud2_filters_erdc
 
       bool configure()
       {
-        RCLCPP_INFO(this->logging_interface_->get_logger(),"Pointcloud2MathExpression started");
+        RCLCPP_INFO(this->logging_interface_->get_logger(),"Pointcloud2MathExpression configuring");
 
         ros::NodeHandle pnh("~" + getName());
         dyn_server_.reset(new dynamic_reconfigure::Server<MathExpressionConfig>(own_mutex_, pnh));
@@ -381,4 +381,4 @@ namespace pointcloud2_filters_erdc
 
 }
 
-PLUGINLIB_EXPORT_CLASS(pointcloud2_filters_erdc::MathExpression, filters::FilterBase<sensor_msgs::msg::PointCloud2>)
+PLUGINLIB_EXPORT_CLASS(pointcloud2_filters::MathExpression, filters::FilterBase<sensor_msgs::msg::PointCloud2>)

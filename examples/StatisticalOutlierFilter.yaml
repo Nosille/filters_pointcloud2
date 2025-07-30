@@ -1,8 +1,0 @@
-
-output_queue_size: 100
-pointcloud2_filter_chain:
-- name: statistical_outlier_filter
-  type: pointcloud2_filters_erdc/StatisticalOutlierFilter
-  params:
-    num_neighbors: 10
-    std_dev_mul_thresh: 1.0

@@ -1,9 +1,0 @@
-
-output_queue_size: 100
-pointcloud2_filter_chain:
-- name: add_normals
-  type: pointcloud2_filters_erdc/AddNormals
-  params:
-    num_neighbors: 10
-    search_radius: 0.5
-

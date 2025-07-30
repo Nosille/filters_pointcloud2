@@ -1,0 +1,16 @@
+
+/**:
+  ros__parameters:
+    pointcloud2_filter_chain:
+      filter1:
+        name: box_filter
+        type: pointcloud2_filters_erdc/BoxFilter
+        params:
+          frame_id: base_link
+          min_x: -5.0
+          max_x: 5.0
+          min_y: -5.0
+          max_y: 5.0
+          min_z: -5.0
+          max_z: 5.0
+          invert: True

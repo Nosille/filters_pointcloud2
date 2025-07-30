@@ -1,0 +1,14 @@
+/**:
+  ros__parameters:
+    pointcloud2_filter_chain:
+      filter1:
+        name: pass_through_filter
+        type: pointcloud2_filters_erdc/PassThroughFilterArray
+        params:
+          frame_id: base_link
+          field: ["x", "y", "z"]
+          min: [-5.0, -2.0, -1.0]
+          max: [5.0, 2.0, 3.0]
+          neg: ["false", "false", "false"]
+          keep_organized: True
+          invert: True

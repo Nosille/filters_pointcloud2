@@ -1,0 +1,11 @@
+/**:
+  ros__parameters:
+    pointcloud2_filter_chain:
+      filter1:
+        name: add_normals
+        type: pointcloud2_filters_erdc/AddNormals
+        params:
+          num_neighbors: 0
+          search_radius: 0.5
+          omp_threads: 0
+

@@ -1,0 +1,9 @@
+/**:
+  ros__parameters:
+    pointcloud2_filter_chain:
+      filter1:
+        name: flip_rings
+        type: pointcloud2_filters_erdc/FlipRings
+        params:
+          field: "ring"
+          num_rings: 64

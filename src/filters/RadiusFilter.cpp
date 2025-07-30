@@ -6,7 +6,11 @@
 #include <tf2_ros/message_filter.h>
 #include <tf2_ros/transform_listener.h>
 
+#include <geometry_msgs/msg/point.hpp>
 #include <sensor_msgs/msg/point_cloud2.hpp>
+
+#include <tf2_sensor_msgs/tf2_sensor_msgs.hpp>
+#include <tf2_geometry_msgs/tf2_geometry_msgs.hpp> 
 
 #include <pcl/point_types.h>
 #include <pcl/kdtree/kdtree_flann.h>
@@ -16,7 +20,7 @@
 #include <pcl_conversions/pcl_conversions.h>
 
 
-namespace pointcloud2_filters_erdc
+namespace pointcloud2_filters
 {
   class RadiusFilter : public filters::FilterBase<sensor_msgs::msg::PointCloud2>
   {
@@ -37,7 +41,7 @@ namespace pointcloud2_filters_erdc
 
       bool configure()
       {
-        RCLCPP_INFO(this->logging_interface_->get_logger(),"Pointcloud2RadiusFilter started");
+        RCLCPP_INFO(this->logging_interface_->get_logger(),"Pointcloud2RadiusFilter configuring");
 
         // Setup tf2
         if(this->get_node() != nullptr)
@@ -127,7 +131,7 @@ namespace pointcloud2_filters_erdc
         // filter        
         if(cloud_xyz->size() == 0)
         {
-          RCLCPP_ERROR(this->logging_interface_->get_logger(),"Zero Points in pointcloud! Should never happen");
+          RCLCPP_ERROR(this->logging_interface_->get_logger(),"Zero Points in input pointcloud! Should never happen");
           return false;
         }
         pcl::KdTreeFLANN<pcl::PointXYZ> kdtree;
@@ -175,4 +179,4 @@ namespace pointcloud2_filters_erdc
 
 }
 
-PLUGINLIB_EXPORT_CLASS(pointcloud2_filters_erdc::RadiusFilter, filters::FilterBase<sensor_msgs::msg::PointCloud2>)
+PLUGINLIB_EXPORT_CLASS(pointcloud2_filters::RadiusFilter, filters::FilterBase<sensor_msgs::msg::PointCloud2>)

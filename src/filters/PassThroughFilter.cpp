@@ -9,13 +9,16 @@
 #include <geometry_msgs/msg/point.hpp>
 #include <sensor_msgs/msg/point_cloud2.hpp>
 
+#include <tf2_sensor_msgs/tf2_sensor_msgs.hpp>
+#include <tf2_geometry_msgs/tf2_geometry_msgs.hpp> 
+
 #include <pcl/filters/passthrough.h>
 #include <pcl/filters/extract_indices.h>
 #include <pcl_ros/transforms.hpp>
 #include <pcl_conversions/pcl_conversions.h>
 
 
-namespace pointcloud2_filters_erdc
+namespace pointcloud2_filters
 {
   class PassThroughFilter : public filters::FilterBase<sensor_msgs::msg::PointCloud2>
   {
@@ -38,7 +41,7 @@ namespace pointcloud2_filters_erdc
 
       bool configure()
       {
-        RCLCPP_INFO(this->logging_interface_->get_logger(),"Pointcloud2PassThroughFilter started");
+        RCLCPP_INFO(this->logging_interface_->get_logger(),"Pointcloud2PassThroughFilter configuring");
 
         // Setup tf2
         if(this->get_node() != nullptr)
@@ -165,4 +168,4 @@ namespace pointcloud2_filters_erdc
 
 }
 
-PLUGINLIB_EXPORT_CLASS(pointcloud2_filters_erdc::PassThroughFilter, filters::FilterBase<sensor_msgs::msg::PointCloud2>)
+PLUGINLIB_EXPORT_CLASS(pointcloud2_filters::PassThroughFilter, filters::FilterBase<sensor_msgs::msg::PointCloud2>)
