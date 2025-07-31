@@ -48,10 +48,12 @@ namespace pointcloud2_filters
         RCLCPP_INFO(this->logging_interface_->get_logger(),"  num_neighbors: %d", m_numNeighbors);
         RCLCPP_INFO(this->logging_interface_->get_logger(),"  search_radius: %f", m_searchRadius);
 
-        // Create publisher
+        // Create debug publisher
         if(this->get_node() != nullptr)
-          m_pubIntermediate = this->get_node()->create_publisher<sensor_msgs::msg::PointCloud2>("output", 10);
-
+        {
+            m_pubIntermediate = this->get_node()->create_publisher<sensor_msgs::msg::PointCloud2>(this->getName(), 10);
+        }
+        
         return true;
       }
 

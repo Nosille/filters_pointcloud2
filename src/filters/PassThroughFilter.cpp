@@ -80,9 +80,11 @@ namespace pointcloud2_filters
         RCLCPP_INFO(this->logging_interface_->get_logger(),"  Keep Organized: %s", (m_keepOrganized ? "true" : "false"));
         RCLCPP_INFO(this->logging_interface_->get_logger(),"  Invert: %s", (m_invert ? "true" : "false"));
 
-        // Create publisher
+        // Create debug publisher
         if(this->get_node() != nullptr)
-            m_pubIntermediate = this->get_node()->create_publisher<sensor_msgs::msg::PointCloud2>("output", 10);
+        {
+            m_pubIntermediate = this->get_node()->create_publisher<sensor_msgs::msg::PointCloud2>(this->getName(), 10);
+        }
 
         return true;
       }

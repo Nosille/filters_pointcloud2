@@ -31,9 +31,11 @@ namespace pointcloud2_filters
         RCLCPP_INFO(this->logging_interface_->get_logger(),"  field: %s", m_field.c_str());
         RCLCPP_INFO(this->logging_interface_->get_logger(),"  num_rings: %d", m_numRings);
 
-        // Create publisher
+        // Create debug publisher
         if(this->get_node() != nullptr)
-            m_pubIntermediate = this->get_node()->create_publisher<sensor_msgs::msg::PointCloud2>("output", 10);
+        {
+            m_pubIntermediate = this->get_node()->create_publisher<sensor_msgs::msg::PointCloud2>(this->getName(), 10);
+        }
 
 
         return true;

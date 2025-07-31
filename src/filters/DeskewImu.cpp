@@ -180,9 +180,11 @@ namespace pointcloud2_filters
         // Create subscriber
         m_subImu = this->get_node()->create_subscription<sensor_msgs::msg::Imu>(imu_topic_, 1000, std::bind(&DeskewImu::callbackImu, this, std::placeholders::_1));
 
-        // Create publisher
+        // Create debug publisher
         if(this->get_node() != nullptr)
-            m_pubIntermediate = this->get_node()->create_publisher<sensor_msgs::msg::PointCloud2>("output", 10);
+        {
+            m_pubIntermediate = this->get_node()->create_publisher<sensor_msgs::msg::PointCloud2>(this->getName(), 10);
+        }
 
         return true;
       }

@@ -41,7 +41,7 @@ namespace pointcloud2_filters
 
       bool configure()
       {
-        RCLCPP_INFO(this->logging_interface_->get_logger(),"Pointcloud2BoxFilter configuring");
+        RCLCPP_INFO_STREAM(this->logging_interface_->get_logger(),"Pointcloud2BoxFilter configuring for node: " << this->get_node());
 
         // Setup tf2
         if(this->get_node() != nullptr)
@@ -62,13 +62,15 @@ namespace pointcloud2_filters
 
         RCLCPP_INFO(this->logging_interface_->get_logger(),"  Frame_id is: %s", m_frameId.c_str());
         RCLCPP_INFO(this->logging_interface_->get_logger(),"  wait for tf delay: %f", m_waitForTfDelay);
-        RCLCPP_INFO(this->logging_interface_->get_logger(),"  Box: x_min %f, x_max, %f, y_min, %f, y_max, %f, min_z %f, max_z %f", 
+        RCLCPP_INFO(this->logging_interface_->get_logger(),"  Box: x_min=%f, x_max=%f, y_min=%f, y_max=%f, min_z=%f, max_z=%f", 
           m_minX, m_maxX, m_minY, m_maxY, m_minZ, m_maxZ);
         RCLCPP_INFO(this->logging_interface_->get_logger(),"  Invert: %s", (m_invert ? "true" : "false"));
 
-        // Create publisher
+        // Create debug publisher
         if(this->get_node() != nullptr)
-            m_pubIntermediate = this->get_node()->create_publisher<sensor_msgs::msg::PointCloud2>("output", 10);
+        {
+            m_pubIntermediate = this->get_node()->create_publisher<sensor_msgs::msg::PointCloud2>(this->getName(), 10);
+        }
 
         return true;
       }
@@ -77,7 +79,6 @@ namespace pointcloud2_filters
         const sensor_msgs::msg::PointCloud2& input_msg,
         sensor_msgs::msg::PointCloud2& output_msg)
       {
-        RCLCPP_WARN_STREAM(this->logging_interface_->get_logger(), "Update BoxFilter");
         // Check message for data
         if (input_msg.data.size() == 0)
         {
@@ -144,7 +145,7 @@ namespace pointcloud2_filters
         pcl_conversions::fromPCL(*cloud_filtered, output_msg);
 
         // publish here for debug purposes
-        if(m_pubIntermediate!= nullptr && m_pubIntermediate->get_subscription_count() > 0) 
+        // if(m_pubIntermediate!= nullptr && m_pubIntermediate->get_subscription_count() > 0) 
           m_pubIntermediate->publish(output_msg);
 
         output_msg.is_dense = false;

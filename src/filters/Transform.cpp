@@ -111,9 +111,11 @@ namespace pointcloud2_filters
           return false;
         }
 
-        // publish here for debug purposes
-        if(m_pubIntermediate!= nullptr && m_pubIntermediate->get_subscription_count() > 0) 
-          m_pubIntermediate->publish(output_msg);
+        // Create debug publisher
+        if(this->get_node() != nullptr)
+        {
+            m_pubIntermediate = this->get_node()->create_publisher<sensor_msgs::msg::PointCloud2>(this->getName(), 10);
+        }
 
         return true;
       }

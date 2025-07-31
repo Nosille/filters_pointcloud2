@@ -5,9 +5,9 @@
     <arg name="output_topic"           default="$(var input_topic)_example"/>    
 
     <node pkg="filter_chains_erdc" exec="pointcloud2" output="screen" 
-        namespace="example" name="pointcloud2_filter">
+          namespace="example" name="pointcloud2_filter">
         <remap from="input" to="$(var input_topic)" />
         <remap from="output" to="$(var output_topic)" />
-        <param from="$(var path)/$(var type).yaml"      allow_substs="True"/>
+        <param from="$(var path)/$(var type).yaml"         allow_substs="True"/>
     </node>
 </launch>
